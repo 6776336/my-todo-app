@@ -9,7 +9,6 @@ def add_todo():
     todos.append(todo)
     functions.write_todos(todos)
 
-
 todos = functions.get_todos()
 
 st.title('My Todo App')
@@ -25,9 +24,7 @@ for index, todo in enumerate(todos):
         del st.session_state[todo]
         st.experimental_rerun()
 
-st.text_input(label='', placeholder="Add new todo",
+st.text_input(label=' ', label_visibility="hidden",  placeholder="Add new todo",
               on_change=add_todo, key='new_todo')
-
-
 
 #st.session_state
