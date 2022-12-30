@@ -24,7 +24,10 @@ for index, todo in enumerate(todos):
         del st.session_state[todo]
         st.experimental_rerun()
 
-st.text_input(label=' ', label_visibility="hidden",  placeholder="Add new todo",
-              on_change=add_todo, key='new_todo')
+with st.form(key='add_form',clear_on_submit=True):
+    st.text_input(label=' ', label_visibility="hidden",  placeholder="Add new todo",
+                  #on_change=add_todo,#
+                  key='new_todo')
+    st.form_submit_button(label='Add todo', on_click=add_todo)
 
 #st.session_state
